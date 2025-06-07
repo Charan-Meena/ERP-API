@@ -1,0 +1,39 @@
+C:\R&D Project\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.deps.json
+C:\R&D Project\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.dll
+C:\R&D Project\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.pdb
+C:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.GeneratedMSBuildEditorConfig.editorconfig
+C:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfoInputs.cache
+C:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfo.cs
+C:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.CoreCompileInputs.cache
+C:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.dll
+C:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.pdb
+D:\R&D Project\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.deps.json
+D:\R&D Project\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.dll
+D:\R&D Project\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.pdb
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.AssemblyReference.cache
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.GeneratedMSBuildEditorConfig.editorconfig
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfoInputs.cache
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfo.cs
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.CoreCompileInputs.cache
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.dll
+D:\R&D Project\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.deps.json
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.dll
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.AssemblyReference.cache
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.GeneratedMSBuildEditorConfig.editorconfig
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfoInputs.cache
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfo.cs
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.CoreCompileInputs.cache
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.dll
+E:\angLearnTutorials\AngularV-18App\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.deps.json
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.dll
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.AssemblyReference.cache
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.GeneratedMSBuildEditorConfig.editorconfig
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfoInputs.cache
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfo.cs
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.CoreCompileInputs.cache
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.dll
+E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.pdb

@@ -1,0 +1,292 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\APIHMS\\APIHMS.csproj": {}
+  },
+  "projects": {
+    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\APIHMS\\APIHMS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\APIHMS\\APIHMS.csproj",
+        "projectName": "APIHMS",
+        "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\APIHMS\\APIHMS.csproj",
+        "packagesPath": "C:\\Users\\CHARAN\\.nuget\\packages\\",
+        "outputPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\APIHMS\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CHARAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\HMS_BL.csproj": {
+                "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\HMS_BL.csproj"
+              },
+              "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj": {
+                "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj"
+              },
+              "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj": {
+                "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\HMS_BL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\HMS_BL.csproj",
+        "projectName": "HMS_BL",
+        "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\HMS_BL.csproj",
+        "packagesPath": "C:\\Users\\CHARAN\\.nuget\\packages\\",
+        "outputPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CHARAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj": {
+                "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj"
+              },
+              "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj": {
+                "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj",
+        "projectName": "HMS_BO",
+        "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj",
+        "packagesPath": "C:\\Users\\CHARAN\\.nuget\\packages\\",
+        "outputPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CHARAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj",
+        "projectName": "HMS_DL",
+        "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\HMS_DL.csproj",
+        "packagesPath": "C:\\Users\\CHARAN\\.nuget\\packages\\",
+        "outputPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_DL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CHARAN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj": {
+                "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
