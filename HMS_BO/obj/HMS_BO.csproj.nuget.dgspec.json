@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj": {}
+    "E:\\gitSMS\\ERP-API\\HMS_BO\\HMS_BO.csproj": {}
   },
   "projects": {
-    "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj": {
+    "E:\\gitSMS\\ERP-API\\HMS_BO\\HMS_BO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj",
+        "projectUniqueName": "E:\\gitSMS\\ERP-API\\HMS_BO\\HMS_BO.csproj",
         "projectName": "HMS_BO",
-        "projectPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj",
+        "projectPath": "E:\\gitSMS\\ERP-API\\HMS_BO\\HMS_BO.csproj",
         "packagesPath": "C:\\Users\\CHARAN\\.nuget\\packages\\",
-        "outputPath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\obj\\",
+        "outputPath": "E:\\gitSMS\\ERP-API\\HMS_BO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CHARAN\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -37,3 +37,13 @@ E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.As
 E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.CoreCompileInputs.cache
 E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.dll
 E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\gitSMS\ERP-API\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.deps.json
+E:\gitSMS\ERP-API\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.dll
+E:\gitSMS\ERP-API\HMS_BO\bin\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.AssemblyReference.cache
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.GeneratedMSBuildEditorConfig.editorconfig
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfoInputs.cache
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.AssemblyInfo.cs
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.csproj.CoreCompileInputs.cache
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.dll
+E:\gitSMS\ERP-API\HMS_BO\obj\Debug\netcoreapp3.1\HMS_BO.pdb

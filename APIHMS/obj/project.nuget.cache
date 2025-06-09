@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9cAs4kzf3gTyRn7wsdcQw/o5WIzqwTrQa8oWgaV4sO+P92lsvFxQ3Qtn3zI5rR1+EJh20ase76J3qmRhmmRXOg==",
+  "dgSpecHash": "Vi0jFKze2ILfbBneZdQlEdcNtjwpmvtcuCPoZ5ntebRoWsB1CmrMIq4zX4Mp6pkjZSm9p2/MBYroTfzD/G8KVg==",
   "success": true,
-  "projectFilePath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\APIHMS\\APIHMS.csproj",
+  "projectFilePath": "E:\\gitSMS\\ERP-API\\APIHMS\\APIHMS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.aspnetcore.antiforgery\\2.2.0\\microsoft.aspnetcore.antiforgery.2.2.0.nupkg.sha512",
     "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

@@ -50,3 +50,16 @@ E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.cs
 E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.csproj.CopyComplete
 E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.dll
 E:\angLearnTutorials\SMS-API+WEB\HMSAPI\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.pdb
+E:\gitSMS\ERP-API\HMS_DL\bin\Debug\netcoreapp3.1\HMS_DL.deps.json
+E:\gitSMS\ERP-API\HMS_DL\bin\Debug\netcoreapp3.1\HMS_DL.dll
+E:\gitSMS\ERP-API\HMS_DL\bin\Debug\netcoreapp3.1\HMS_DL.pdb
+E:\gitSMS\ERP-API\HMS_DL\bin\Debug\netcoreapp3.1\HMS_BO.dll
+E:\gitSMS\ERP-API\HMS_DL\bin\Debug\netcoreapp3.1\HMS_BO.pdb
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.csproj.AssemblyReference.cache
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.GeneratedMSBuildEditorConfig.editorconfig
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.AssemblyInfoInputs.cache
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.AssemblyInfo.cs
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.csproj.CoreCompileInputs.cache
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.csproj.CopyComplete
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.dll
+E:\gitSMS\ERP-API\HMS_DL\obj\Debug\netcoreapp3.1\HMS_DL.pdb

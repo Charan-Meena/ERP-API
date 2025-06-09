@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fX0u7X3LRSl2o/yJKPyx0P6j0GEY/EQR1QgjawtoA6hxg1oOUyduoVWan2gAXOJwfcnLwkl3kjGqcBMWYqkE0g==",
+  "dgSpecHash": "tNFiPmTx1G/3LK3A38P58sV/pJTimJS0tMRhLEfK1ENHyPFQKV8v+IzmBtbCOtjMNITlzMt3SeDOR4F4ekdgmw==",
   "success": true,
-  "projectFilePath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BO\\HMS_BO.csproj",
+  "projectFilePath": "E:\\gitSMS\\ERP-API\\HMS_BO\\HMS_BO.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

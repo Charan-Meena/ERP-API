@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4TpGX1UgukxHBMgZKfQcSoBPj3mgR7gNH9buijS0Lg1ncyKPPxXQxTAXVb0+g8GPyoyysUp2/jeEzcC+CZHDww==",
+  "dgSpecHash": "+fgfY20cPjSpqet6KDa3mq4VbcYsqwah+SnHH8ldGP0oRq9vRjirt+fFODmXTT/3LEnB0Pr2c0ODytE9h5Ua1A==",
   "success": true,
-  "projectFilePath": "E:\\angLearnTutorials\\SMS-API+WEB\\HMSAPI\\HMS_BL\\HMS_BL.csproj",
+  "projectFilePath": "E:\\gitSMS\\ERP-API\\HMS_BL\\HMS_BL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.0\\microsoft.extensions.configuration.3.1.0.nupkg.sha512",
     "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.0\\microsoft.extensions.configuration.abstractions.3.1.0.nupkg.sha512",
