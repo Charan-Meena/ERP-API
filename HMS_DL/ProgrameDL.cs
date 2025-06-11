@@ -104,7 +104,7 @@ namespace HMS_DL
         }
         public ResponseData courseMasterMasterRegistration(courseScheme objCourse)
         {
-            SqlParameter[] param = new SqlParameter[5];
+            SqlParameter[] param = new SqlParameter[6];
             string ActionString = "";
             if (objCourse.courseSchemeID == "0" || objCourse.courseSchemeID == "null" || objCourse.courseSchemeID == null)
             {
@@ -120,6 +120,8 @@ namespace HMS_DL
             param[2] = new SqlParameter("@courseSchemeName", objCourse.courseSchemeName);
             param[3] = new SqlParameter("@isActive", objCourse.isActive);
             param[4] = new SqlParameter("@ProgrameID", objCourse.programeID);
+            param[5] = new SqlParameter("@examPattern", objCourse.examPattern);
+
             DataSet ds = DBOperation.FillDataSet("Sp_CourseScheme", param);
             if (ds != null || ds.Tables[0].Rows.Count > 0)
             {
@@ -146,8 +148,7 @@ namespace HMS_DL
                 param[1] = new SqlParameter("@PageNumber ", objTblParam.PageNumber);
                 param[2] = new SqlParameter("@RowsOfPage", objTblParam.RowsOfPage);
                 param[3] = new SqlParameter("@SearchText", objTblParam.searchText);
-                // DataTable dt = DBOperation.FillDataTable("Sp_ProgrameManagment", param);
-                DataSet ds = DBOperation.FillDataSet("Sp_CourseScheme", param);
+                DataSet ds = DBOperation.FillDataSet("[Sp_CourseScheme]", param);
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
                     bojTableResponce.Data = ds.Tables[0];

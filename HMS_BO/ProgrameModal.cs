@@ -26,6 +26,7 @@ namespace HMS_BO
     public class courseScheme {
         public string courseSchemeID { get; set; } 
         public string courseSchemeName { get; set; }
+        public string examPattern { get; set; }
         public int programeID { get; set; }
         public int isActive { get; set; } 
     }
