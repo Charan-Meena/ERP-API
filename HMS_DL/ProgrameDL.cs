@@ -79,7 +79,6 @@ namespace HMS_DL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -169,5 +168,60 @@ namespace HMS_DL
                 throw ex;
             }
         }
+
+        // 
+        public ResponseTableData examPaperAdd(examPaper objexamPaper)
+        {
+            int count = 0;
+            //objexamPaper.SubjectDetails.ForEach(item =>
+            //{
+            //    uniContactsTable1.Rows.Add(item.Caption, item.Feild_Type, item.Is_Mandotary, item.Ip_Type);
+            //});
+            DataSet ds = new DataSet();
+
+            try
+            {
+                foreach(SubjectDetail item in objexamPaper.SubjectDetails)
+                {
+                    SqlParameter[] param = new SqlParameter[11];
+                    param[0] = new SqlParameter("@Action", "InsertPaper");
+                    param[1] = new SqlParameter("@courseSchemeID", objexamPaper.courseSchemeID);
+                    param[2] = new SqlParameter("@IsCompulsory", item.IsCompulsory);
+                    param[3] = new SqlParameter("@SubjSeq", item.SubjSeq);
+                    param[4] = new SqlParameter("@SubjName", item.SubjName);
+                    param[5] = new SqlParameter("@SubjectCode", item.SubjectCode);
+                    param[6] = new SqlParameter("@TheoryMax", item.TheoryMax);
+                    param[7] = new SqlParameter("@TheoryMin", item.TheoryMin);
+                    param[8] = new SqlParameter("@PractMax", item.PractMax);
+                    param[9] = new SqlParameter("@SesMax", item.SesMax);
+                    param[10] = new SqlParameter("@SesMin", item.SesMin);
+                    ds = DBOperation.FillDataSet("Sp_ExamPaper", param);
+
+                }
+                
+                
+                
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    bojTableResponce.Data = ds.Tables[0];
+                    bojTableResponce.totalRecords = Convert.ToInt32(ds.Tables[1].Rows[0][0].ToString());
+                    bojTableResponce.totalPages = Convert.ToInt32(ds.Tables[1].Rows[0][1].ToString());
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+                return bojTableResponce;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
     }
 }

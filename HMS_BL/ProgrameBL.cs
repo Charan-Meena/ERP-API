@@ -37,6 +37,11 @@ namespace HMS_BL
             bojTableResponce = ObjProgrameDl.courseSchemeList(objTblParam);
             return bojTableResponce;
         }
-        
+        // examPaperAdd([FromForm] examPaper objexamPaper)
+        public ResponseTableData examPaperAdd(examPaper objexamPaper)
+        {
+            bojTableResponce = ObjProgrameDl.examPaperAdd(objexamPaper);
+            return bojTableResponce;
+        }
     }
 }

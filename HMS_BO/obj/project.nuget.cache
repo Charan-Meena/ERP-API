@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "tNFiPmTx1G/3LK3A38P58sV/pJTimJS0tMRhLEfK1ENHyPFQKV8v+IzmBtbCOtjMNITlzMt3SeDOR4F4ekdgmw==",
+  "dgSpecHash": "y39fWsww4CuPVa8Qk+kI74EOvLggGb8XA9XyrX99a52zFIa3hWqrr/XTf1OD4qWeNPLvs7vqST9DvNzNAqaa6A==",
   "success": true,
   "projectFilePath": "E:\\gitSMS\\ERP-API\\HMS_BO\\HMS_BO.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.0\\microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",
+    "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.0.nupkg.sha512",
+    "C:\\Users\\CHARAN\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\CHARAN\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\CHARAN\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

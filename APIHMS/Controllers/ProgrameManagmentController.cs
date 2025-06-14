@@ -81,7 +81,28 @@ namespace APIHMS.Controllers
             return bojTableResponce;
 
         }
+
         
-        
+        [Route("examPaperAdd")]
+        [HttpPost]
+        [Authorize]
+
+         public ResponseTableData examPaperAdd([FromBody] examPaper objexamPaper)
+        {
+
+            try
+            {
+               bojTableResponce = ObjProgrameBl.examPaperAdd(objexamPaper);
+                return bojTableResponce;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return bojTableResponce;
+
+        }
+
+
     }
 }
