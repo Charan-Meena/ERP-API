@@ -37,29 +37,30 @@ namespace HMS_BO
     public class examPaper
     {
         public int courseSchemeID { get; set; }
-       // public string SubjectDetails { get; set; }
-        public List<SubjectDetail> _SubjectDetails;
-        public dynamic SubjectDetails
-        {
-            get => _SubjectDetails;
-            set
-            {
-                try
-                {
-                    _SubjectDetails = new List<SubjectDetail>();
-                    if (!String.IsNullOrEmpty(value))
-                    {
-                        //_SubjectDetails = JsonSerializer.Deserialize<List<SubjectDetail>>(value);
-                        _SubjectDetails = JsonConvert.DeserializeObject<List<SubjectDetail>>(value);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //Console.WriteLine(ex);
-                    _SubjectDetails = new List<SubjectDetail>();
-                }
-            }
-        }
+        public string SubjectDetails { get; set; }
+
+        public List<SubjectDetail> SubjectDetails1;
+        //public dynamic SubjectDetails
+        //{
+        //    get => _SubjectDetails;
+        //    set
+        //    {
+        //        try
+        //        {
+        //            _SubjectDetails = new List<SubjectDetail>();
+        //            if (!String.IsNullOrEmpty(value))
+        //            {
+        //                //_SubjectDetails = JsonSerializer.Deserialize<List<SubjectDetail>>(value);
+        //                _SubjectDetails = JsonConvert.DeserializeObject<List<SubjectDetail>>(value);
+        //            }
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            //Console.WriteLine(ex);
+        //            _SubjectDetails = new List<SubjectDetail>();
+        //        }
+        //    }
+        //}
     }
 
     public class SubjectDetail
@@ -71,6 +72,8 @@ namespace HMS_BO
         public string TheoryMax { get; set; }
         public string TheoryMin { get; set; }
         public string PractMax { get; set; }
+        public string PractMin { get; set; }
+
         public string SesMax { get; set; }
         public string SesMin { get; set; }
         public string MaxTotal { get; set; }

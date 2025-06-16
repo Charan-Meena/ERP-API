@@ -87,19 +87,20 @@ namespace APIHMS.Controllers
         [HttpPost]
         [Authorize]
 
-         public ResponseTableData examPaperAdd([FromBody] examPaper objexamPaper)
+         public ResponseData examPaperAdd([FromForm] examPaper objexamPaper)
         {
+            objexamPaper.SubjectDetails1 = JsonConvert.DeserializeObject<List<SubjectDetail>>(objexamPaper.SubjectDetails);
 
             try
             {
-               bojTableResponce = ObjProgrameBl.examPaperAdd(objexamPaper);
-                return bojTableResponce;
+                objres = ObjProgrameBl.examPaperAdd(objexamPaper);
+                return objres;
             }
             catch (Exception ex)
             {
                 // throw ex.Message;
             }
-            return bojTableResponce;
+            return objres;
 
         }
 

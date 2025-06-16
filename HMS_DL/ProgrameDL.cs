@@ -164,48 +164,73 @@ namespace HMS_DL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
 
         // 
-        public ResponseTableData examPaperAdd(examPaper objexamPaper)
+        public ResponseData examPaperAdd(examPaper objexamPaper)
         {
-            int count = 0;
-            //objexamPaper.SubjectDetails.ForEach(item =>
-            //{
-            //    uniContactsTable1.Rows.Add(item.Caption, item.Feild_Type, item.Is_Mandotary, item.Ip_Type);
-            //});
             DataSet ds = new DataSet();
+            //DataTable subjectTable = new DataTable();
+            //subjectTable.Columns.Add("IsCompulsory", typeof(string));
+            //subjectTable.Columns.Add("SubjSeq", typeof(string));
+            //subjectTable.Columns.Add("SubjName", typeof(string));
+            //subjectTable.Columns.Add("SubjectCode", typeof(string));
+            //subjectTable.Columns.Add("TheoryMax", typeof(int));
+            //subjectTable.Columns.Add("TheoryMin", typeof(int));
+            //subjectTable.Columns.Add("PractMax", typeof(int));
+            //subjectTable.Columns.Add("SesMax", typeof(int));
+            //subjectTable.Columns.Add("SesMin", typeof(int));
 
+            //objexamPaper.SubjectDetails1.ForEach(item =>
+            //{
+            //    subjectTable.Rows.Add(item.IsCompulsory, item.SubjSeq, item.SubjName, item.SubjectCode,item.TheoryMax,item.TheoryMin,item.PractMax,item.SesMax,item.SesMin);
+            //});
             try
             {
-                foreach(SubjectDetail item in objexamPaper.SubjectDetails)
-                {
-                    SqlParameter[] param = new SqlParameter[11];
-                    param[0] = new SqlParameter("@Action", "InsertPaper");
-                    param[1] = new SqlParameter("@courseSchemeID", objexamPaper.courseSchemeID);
-                    param[2] = new SqlParameter("@IsCompulsory", item.IsCompulsory);
-                    param[3] = new SqlParameter("@SubjSeq", item.SubjSeq);
-                    param[4] = new SqlParameter("@SubjName", item.SubjName);
-                    param[5] = new SqlParameter("@SubjectCode", item.SubjectCode);
-                    param[6] = new SqlParameter("@TheoryMax", item.TheoryMax);
-                    param[7] = new SqlParameter("@TheoryMin", item.TheoryMin);
-                    param[8] = new SqlParameter("@PractMax", item.PractMax);
-                    param[9] = new SqlParameter("@SesMax", item.SesMax);
-                    param[10] = new SqlParameter("@SesMin", item.SesMin);
-                    ds = DBOperation.FillDataSet("Sp_ExamPaper", param);
+            //    for (int i = 0; i <= subjectTable.Rows.Count - 1; i++)
+            //    {
+            //        SqlParameter[] param = new SqlParameter[11];
+            //        param[0] = new SqlParameter("@Action", "InsertPaper");
+            //        param[1] = new SqlParameter("@courseSchemeID", objexamPaper.courseSchemeID);
+            //        param[2] = new SqlParameter("@IsCompulsory", subjectTable.Rows[i]["IsCompulsory"].ToString());
+            //        param[3] = new SqlParameter("@SubjSeq", subjectTable.Rows[i]["SubjSeq"].ToString());
+            //        param[4] = new SqlParameter("@SubjName", subjectTable.Rows[i]["SubjName"].ToString());
+            //        param[5] = new SqlParameter("@SubjectCode", subjectTable.Rows[i]["SubjectCode"].ToString());
+            //        param[6] = new SqlParameter("@TheoryMax", subjectTable.Rows[i]["TheoryMax"].ToString());
+            //        param[7] = new SqlParameter("@TheoryMin", subjectTable.Rows[i]["TheoryMin"].ToString());
+            //        param[8] = new SqlParameter("@PractMax", subjectTable.Rows[i]["PractMax"].ToString());
+            //        param[9] = new SqlParameter("@SesMax", subjectTable.Rows[i]["SesMax"].ToString());
+            //        param[10] = new SqlParameter("@SesMin", subjectTable.Rows[i]["SesMin"].ToString());
 
-                }
-                
-                
-                
-                if (ds != null || ds.Tables[0].Rows.Count > 0)
+
+            //        ds = DBOperation.FillDataSet("Sp_ExamPaper", param);
+            //    }
+
+            foreach (SubjectDetail item in objexamPaper.SubjectDetails1)
+            {
+                SqlParameter[] param = new SqlParameter[13];
+                param[0] = new SqlParameter("@Action", "InsertPaper");
+                param[1] = new SqlParameter("@courseSchemeID", objexamPaper.courseSchemeID);
+                param[2] = new SqlParameter("@IsCompulsory", item.IsCompulsory);
+                param[3] = new SqlParameter("@SubjSeq", item.SubjSeq);
+                param[4] = new SqlParameter("@SubjName", item.SubjName);
+                param[5] = new SqlParameter("@SubjectCode", item.SubjectCode);
+                param[6] = new SqlParameter("@TheoryMax", item.TheoryMax);
+                param[7] = new SqlParameter("@TheoryMin", item.TheoryMin);
+                param[8] = new SqlParameter("@PractMax", item.PractMax);
+                param[9] = new SqlParameter("@SesMax", item.SesMax);
+                param[10] = new SqlParameter("@SesMin", item.SesMin);
+                param[11] = new SqlParameter("@PractMin", item.PractMin);
+                param[12] = new SqlParameter("@ActiveStatus", item.ActiveStatus);
+                ds = DBOperation.FillDataSet("Sp_ExamPaper", param);
+            }
+
+            if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
-                    bojTableResponce.Data = ds.Tables[0];
-                    bojTableResponce.totalRecords = Convert.ToInt32(ds.Tables[1].Rows[0][0].ToString());
-                    bojTableResponce.totalPages = Convert.ToInt32(ds.Tables[1].Rows[0][1].ToString());
+                    objResponseData.Data = ds.Tables[0].Rows[0][0];
+                    objResponseData.Message = ds.Tables[0].Rows[0][1].ToString();
                 }
                 else
                 {
@@ -213,7 +238,7 @@ namespace HMS_DL
                     objResponseData.Message = "No Data Available...";
                     objResponseData.statusCode = -1;
                 }
-                return bojTableResponce;
+                return objResponseData;
             }
             catch (Exception ex)
             {
