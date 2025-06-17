@@ -37,6 +37,8 @@ namespace HMS_BO
     public class examPaper
     {
         public int courseSchemeID { get; set; }
+        public string examPattern { get; set; }
+        public string SemYear { get; set; }
         public string SubjectDetails { get; set; }
 
         public List<SubjectDetail> SubjectDetails1;
@@ -73,7 +75,6 @@ namespace HMS_BO
         public string TheoryMin { get; set; }
         public string PractMax { get; set; }
         public string PractMin { get; set; }
-
         public string SesMax { get; set; }
         public string SesMin { get; set; }
         public string MaxTotal { get; set; }

@@ -86,8 +86,7 @@ namespace APIHMS.Controllers
         [Route("examPaperAdd")]
         [HttpPost]
         [Authorize]
-
-         public ResponseData examPaperAdd([FromForm] examPaper objexamPaper)
+          public ResponseData examPaperAdd([FromForm] examPaper objexamPaper)
         {
             objexamPaper.SubjectDetails1 = JsonConvert.DeserializeObject<List<SubjectDetail>>(objexamPaper.SubjectDetails);
 
@@ -102,6 +101,22 @@ namespace APIHMS.Controllers
             }
             return objres;
 
+        }
+        [Route("coursePaperList")]
+        [HttpPost]
+        [Authorize]
+        public ResponseTableData coursePaperList([FromForm] tableParam objTblParam)
+        {
+            try
+            {
+                bojTableResponce = ObjProgrameBl.coursePaperList(objTblParam);
+                return bojTableResponce;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return bojTableResponce;
         }
 
 
