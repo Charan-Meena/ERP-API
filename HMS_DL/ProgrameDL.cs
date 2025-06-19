@@ -177,7 +177,7 @@ namespace HMS_DL
 
             foreach (SubjectDetail item in objexamPaper.SubjectDetails1)
             {
-                SqlParameter[] param = new SqlParameter[15];
+                SqlParameter[] param = new SqlParameter[16];
                 param[0] = new SqlParameter("@Action", "InsertPaper");
                 param[1] = new SqlParameter("@courseSchemeID", objexamPaper.courseSchemeID);
                 param[2] = new SqlParameter("@IsCompulsory", item.IsCompulsory);
@@ -190,9 +190,10 @@ namespace HMS_DL
                 param[9] = new SqlParameter("@SesMax", item.SesMax);
                 param[10] = new SqlParameter("@SesMin", item.SesMin);
                 param[11] = new SqlParameter("@PractMin", item.PractMin);
-                param[12] = new SqlParameter("@ActiveStatus", item.ActiveStatus);
-                param[13] = new SqlParameter("@examPattern", objexamPaper.examPattern);
-                param[14] = new SqlParameter("@SemYear", objexamPaper.SemYear);
+                param[12] = new SqlParameter("@MaxTotal", item.MaxTotal);
+                param[13] = new SqlParameter("@ActiveStatus", item.ActiveStatus);
+                param[14] = new SqlParameter("@examPattern", objexamPaper.examPattern);
+                param[15] = new SqlParameter("@SemYear", objexamPaper.SemYear);
                 ds = DBOperation.FillDataSet("Sp_ExamPaper", param);
             }
 
@@ -200,6 +201,7 @@ namespace HMS_DL
                 {
                     objResponseData.Data = ds.Tables[0].Rows[0][0];
                     objResponseData.Message = ds.Tables[0].Rows[0][1].ToString();
+                    objResponseData.statusCode = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
                 }
                 else
                 {

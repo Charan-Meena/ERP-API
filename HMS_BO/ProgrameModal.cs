@@ -78,7 +78,7 @@ namespace HMS_BO
         public string SesMax { get; set; }
         public string SesMin { get; set; }
         public string MaxTotal { get; set; }
-        public string MinTotal { get; set; }
+       // public string MinTotal { get; set; }
         public string ActiveStatus { get; set; }
     }
 }
