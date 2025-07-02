@@ -81,4 +81,17 @@ namespace HMS_BO
        // public string MinTotal { get; set; }
         public string ActiveStatus { get; set; }
     }
+    public class paperQuestionBank
+    {
+        public int paperID { get; set; }
+        public int questionId { get; set; }
+        public string question { get; set; }
+        public string optionA { get; set; }
+        public string optionB { get; set; }
+        public string optionC { get; set; }
+        public string optionD { get; set; }
+        public string answer { get; set; }
+        public string isActive { get; set; }
+    }
+
 }

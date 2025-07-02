@@ -118,6 +118,23 @@ namespace APIHMS.Controllers
             }
             return bojTableResponce;
         }
+        [Route("examQuestionRegistration")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData examPaperQuestionAdd([FromForm] paperQuestionBank objexamPaperQuestion)
+        {
+            try
+            {
+                objres = ObjProgrameBl.examPaperQuestionAdd(objexamPaperQuestion);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+
+        }
 
 
     }

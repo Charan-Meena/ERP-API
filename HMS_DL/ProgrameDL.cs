@@ -174,7 +174,6 @@ namespace HMS_DL
             DataSet ds = new DataSet();
             try
             {
-
             foreach (SubjectDetail item in objexamPaper.SubjectDetails1)
             {
                 SqlParameter[] param = new SqlParameter[16];
@@ -196,7 +195,6 @@ namespace HMS_DL
                 param[15] = new SqlParameter("@SemYear", objexamPaper.SemYear);
                 ds = DBOperation.FillDataSet("Sp_ExamPaper", param);
             }
-
             if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
                     objResponseData.Data = ds.Tables[0].Rows[0][0];
@@ -213,10 +211,8 @@ namespace HMS_DL
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
 
         public ResponseTableData coursePaperList(tableParam objTblParam)
@@ -242,6 +238,41 @@ namespace HMS_DL
                     objResponseData.statusCode = -1;
                 }
                 return bojTableResponce;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public ResponseData examPaperQuestionAdd(paperQuestionBank objexamPaperQuestion)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+            SqlParameter[] param = new SqlParameter[8];
+            param[0] = new SqlParameter("@Action", "InsertQuestion");                     
+            param[1] = new SqlParameter("@paperID", objexamPaperQuestion.paperID);
+            param[2] = new SqlParameter("@question", objexamPaperQuestion.question);
+            param[3] = new SqlParameter("@a_Option", objexamPaperQuestion.optionA);
+            param[4] = new SqlParameter("@b_Option", objexamPaperQuestion.optionB);
+            param[5] = new SqlParameter("@c_Option", objexamPaperQuestion.optionC);
+            param[6] = new SqlParameter("@d_Option", objexamPaperQuestion.optionD);
+            param[7] = new SqlParameter("@answer", objexamPaperQuestion.answer);
+            ds = DBOperation.FillDataSet("Sp_ExamPaperQuestionBank", param);
+            if (ds != null || ds.Tables[0].Rows.Count > 0)
+            {
+                objResponseData.Data = ds.Tables[0].Rows[0][0];
+                objResponseData.Message = ds.Tables[0].Rows[0][1].ToString();
+                objResponseData.statusCode = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
+            }
+            else
+            {
+                objResponseData.ResponseCode = "001";
+                objResponseData.Message = "No Data Available...";
+                objResponseData.statusCode = -1;
+            }
+            return objResponseData;
             }
             catch (Exception ex)
             {

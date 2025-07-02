@@ -48,5 +48,10 @@ namespace HMS_BL
             bojTableResponce = ObjProgrameDl.coursePaperList(objTblParam);
             return bojTableResponce;
         }
+        public ResponseData examPaperQuestionAdd(paperQuestionBank objexamPaperQuestion)
+        {
+            objres = ObjProgrameDl.examPaperQuestionAdd(objexamPaperQuestion);
+            return objres;
+        }
     }
 }
