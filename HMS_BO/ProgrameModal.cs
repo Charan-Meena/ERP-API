@@ -94,4 +94,20 @@ namespace HMS_BO
         public string isActive { get; set; }
     }
 
+    public class studentExamSubmit
+    {
+        public int paperID { get; set; }
+        public int questionId { get; set; }
+        public string answer { get; set; }
+        public int studentID { get; set; }
+        public string givenAnswer { get; set; }
+        public string examSession { get; set; }
+        
+    }
+    public class studentExamSubmitlist
+    {
+        public List<studentExamSubmit> answerLsit { get; set; }
+        public string questionList { get; set; }
+    }
+
 }
