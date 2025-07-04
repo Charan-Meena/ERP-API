@@ -16,6 +16,11 @@ namespace HMS_BL
             objres= ObjProgrameDl.programeMasterRegistration(objprograme);
             return objres;
         }
+        public ResponseData programeDDL()
+        {
+            objres = ObjProgrameDl.programeDDL();
+            return objres;
+        }
         public ResponseTableData programeList(tableParam objTblParam)
         {
             bojTableResponce = ObjProgrameDl.programeList(objTblParam);
@@ -48,10 +53,11 @@ namespace HMS_BL
             bojTableResponce = ObjProgrameDl.coursePaperList(objTblParam);
             return bojTableResponce;
         }
-        public ResponseData examPaperQuestionAdd(paperQuestionBank objexamPaperQuestion)
+        public ResponseData BatchDDL(int id)
         {
-            objres = ObjProgrameDl.examPaperQuestionAdd(objexamPaperQuestion);
+            objres= ObjProgrameDl.BatchDDL(id);
             return objres;
         }
+
     }
 }

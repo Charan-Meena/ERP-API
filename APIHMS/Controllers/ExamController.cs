@@ -15,6 +15,23 @@ namespace APIHMS.Controllers
     {
         ResponseData objres = new ResponseData();
         ExamBL ObExamBl = new ExamBL();
+        [Route("examQuestionRegistration")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData examPaperQuestionAdd([FromForm] paperQuestionBank objexamPaperQuestion)
+        {
+            try
+            {
+                objres = ObExamBl.examPaperQuestionAdd(objexamPaperQuestion);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+
+        }
 
         [Route("getQuestionforExam")]
         [HttpGet]
@@ -48,7 +65,22 @@ namespace APIHMS.Controllers
                 // throw ex.Message;
             }
             return objres;
-
+        }
+        [Route("examScheduleCreate")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData examScheduleCreate([FromForm] ExamScheduleModal objExamSchedule)
+        {
+            try
+            {
+                objres = ObExamBl.examScheduleCreate(objExamSchedule);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
         }
     }
 }

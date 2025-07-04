@@ -41,6 +41,31 @@ namespace HMS_DL
             }
             return objResponseData;
         }
+        public ResponseData programeDDL()
+        {
+            try
+            {
+                SqlParameter[] param = new SqlParameter[1];
+                param[0] = new SqlParameter("@Action", "GetProgrameDDL");
+                DataSet ds = DBOperation.FillDataSet("Sp_ProgrameManagment", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objResponseData.Data = ds.Tables[0];
+                    objResponseData.Message = "ProgrameDL DDL Get Successfully";
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+                return objResponseData;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public ResponseTableData programeList(tableParam objTblParam)
         {
@@ -245,40 +270,36 @@ namespace HMS_DL
             }
         }
 
-        public ResponseData examPaperQuestionAdd(paperQuestionBank objexamPaperQuestion)
+        public ResponseData BatchDDL(int id)
         {
-            DataSet ds = new DataSet();
             try
             {
-            SqlParameter[] param = new SqlParameter[8];
-            param[0] = new SqlParameter("@Action", "InsertQuestion");                     
-            param[1] = new SqlParameter("@paperID", objexamPaperQuestion.paperID);
-            param[2] = new SqlParameter("@question", objexamPaperQuestion.question);
-            param[3] = new SqlParameter("@a_Option", objexamPaperQuestion.optionA);
-            param[4] = new SqlParameter("@b_Option", objexamPaperQuestion.optionB);
-            param[5] = new SqlParameter("@c_Option", objexamPaperQuestion.optionC);
-            param[6] = new SqlParameter("@d_Option", objexamPaperQuestion.optionD);
-            param[7] = new SqlParameter("@answer", objexamPaperQuestion.answer);
-            ds = DBOperation.FillDataSet("Sp_ExamPaperQuestionBank", param);
-            if (ds != null || ds.Tables[0].Rows.Count > 0)
-            {
-                objResponseData.Data = ds.Tables[0].Rows[0][0];
-                objResponseData.Message = ds.Tables[0].Rows[0][1].ToString();
-                objResponseData.statusCode = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
-            }
-            else
-            {
-                objResponseData.ResponseCode = "001";
-                objResponseData.Message = "No Data Available...";
-                objResponseData.statusCode = -1;
-            }
-            return objResponseData;
+                SqlParameter[] param = new SqlParameter[2];
+                param[0] = new SqlParameter("@Action", "GetBatchDDL");
+                param[1] = new SqlParameter("@PageNumber ",id);
+                DataSet ds = DBOperation.FillDataSet("[Sp_ProgrameManagment]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objResponseData.Data = ds.Tables[0];
+                    objResponseData.Message ="Data Get Successfully..";
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+                return objResponseData;
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+            //return objResponseData;
         }
+
+
+
 
     }
 }

@@ -9,7 +9,7 @@ using System;
 
 namespace APIHMS.Controllers
 {
-    [Route("api/ProgrameManagment/")]
+    [Route("api/ProgrameManagment/")]                  //api/ProgrameManagment/programeDDL
     [ApiController]
     public class ProgrameManagmentController : ControllerBase
     {
@@ -31,6 +31,16 @@ namespace APIHMS.Controllers
             objres = ObjProgrameBl.programeMasterRegistration(ObjProg);
             return objres;
         }
+
+        [Route("programeDDL")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData programeDDL()
+        {
+            objres = ObjProgrameBl.programeDDL();
+            return objres;
+        }
+
         [Route("programeList")]
         [HttpPost]
         [Authorize]
@@ -118,24 +128,22 @@ namespace APIHMS.Controllers
             }
             return bojTableResponce;
         }
-        [Route("examQuestionRegistration")]
-        [HttpPost]
+        [Route("BatchDDL")]
+        [HttpGet]
         [Authorize]
-        public ResponseData examPaperQuestionAdd([FromForm] paperQuestionBank objexamPaperQuestion)
+        public ResponseData BatchDDL(int id)
         {
             try
             {
-                objres = ObjProgrameBl.examPaperQuestionAdd(objexamPaperQuestion);
+                objres = ObjProgrameBl.BatchDDL(1);
                 return objres;
             }
             catch (Exception ex)
             {
-                // throw ex.Message;
+                 //throw ex.Message;
             }
             return objres;
-
         }
-
 
     }
 }

@@ -109,5 +109,15 @@ namespace HMS_BO
         public List<studentExamSubmit> answerLsit { get; set; }
         public string questionList { get; set; }
     }
+    public class ExamScheduleModal
+    {
+        public int examScheduleID { get; set; }
+        public int programeId { get; set; }
+        public int batch_Id { get; set; }
+        public int semester_year { get; set; }
+        public string examSession { get; set; }
+        public DateTime openDate { get; set; }
+        public DateTime closeDate { get; set; }
+    }
 
 }

@@ -14,7 +14,7 @@ namespace APIHMS.Controllers
     [ApiController]
     public class StudentController : Controller
     {
-        ResponseTableData bojTableResponce = new ResponseTableData();
+        ResponseTableData objTableResponce = new ResponseTableData();
         ResponseData objres = new ResponseData();
         StudentBL objStuBl = new StudentBL();
 
@@ -26,6 +26,23 @@ namespace APIHMS.Controllers
             ObjStudent.passwordhash = HMS_DL.Cryptography.Encrypt(ObjStudent.passwordhash);
             objres = objStuBl.stdentsRegistration(ObjStudent);
             return objres;
+        }
+        [Route("studentList")]
+        [HttpPost]
+        [Authorize]
+        public ResponseTableData studentList([FromForm] tableParam objTblParam)
+        {
+            try
+            {
+                objTableResponce = objStuBl.studentList(objTblParam);
+                return objTableResponce;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objTableResponce;
+
         }
     }
 }

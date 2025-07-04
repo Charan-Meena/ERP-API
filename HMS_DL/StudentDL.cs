@@ -11,7 +11,7 @@ namespace HMS_DL
     public class StudentDL
     {
         ResponseData objResponseData = new ResponseData();
-        ResponseTableData bojTableResponce = new ResponseTableData();
+        ResponseTableData objTableResponce = new ResponseTableData();
         public ResponseData stdentsRegistration(StudentModal ObjStudent)
         {
 
@@ -42,7 +42,7 @@ namespace HMS_DL
                 param[2] = new SqlParameter("@fullname", ObjStudent.fullname);
                 param[3] = new SqlParameter("@email", ObjStudent.email);
                 param[4] = new SqlParameter("@phoneNumber", ObjStudent.phoneNumber);
-                param[5] = new SqlParameter("@dob", (ObjStudent.dob).ToString());
+                param[5] = new SqlParameter("@dob", ObjStudent.dob);
                 param[6] = new SqlParameter("@gender", ObjStudent.gender);
                 param[7] = new SqlParameter("@activeStatus", ObjStudent.activeStatus);
                 param[8] = new SqlParameter("@entityType", ObjStudent.entityType);
@@ -70,6 +70,35 @@ namespace HMS_DL
 
             return objResponseData;
 
+        }
+        public ResponseTableData studentList(tableParam objTblParam)
+        {
+            try
+            {
+                SqlParameter[] param = new SqlParameter[4];
+                param[0] = new SqlParameter("@Action", "StudentList");
+                param[1] = new SqlParameter("@PageNumber ", objTblParam.PageNumber);
+                param[2] = new SqlParameter("@RowsOfPage", objTblParam.RowsOfPage);
+                param[3] = new SqlParameter("@SearchText", objTblParam.searchText);
+                DataSet ds = DBOperation.FillDataSet("[Sp_StudentAction]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objTableResponce.Data = ds.Tables[0];
+                    objTableResponce.totalRecords = Convert.ToInt32(ds.Tables[1].Rows[0][0].ToString());
+                    objTableResponce.totalPages = Convert.ToInt32(ds.Tables[1].Rows[0][1].ToString());
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+                return objTableResponce;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
