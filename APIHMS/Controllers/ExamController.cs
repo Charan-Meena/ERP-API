@@ -82,5 +82,21 @@ namespace APIHMS.Controllers
             }
             return objres;
         }
+        [Route("examScheduleList")]
+        [HttpGet]
+        [Authorize]
+        public ResponseData examScheduleList()
+        {
+            try
+            {
+                objres = ObExamBl.examScheduleList();
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
     }
 }

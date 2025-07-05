@@ -30,5 +30,10 @@ namespace HMS_BL
             objres = ObjExamDl.examScheduleCreate(objExamSchedule);
             return objres;
         }
+        public ResponseData examScheduleList()
+        {
+            objres = ObjExamDl.examScheduleList();
+            return objres;
+        }
     }
 }

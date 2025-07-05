@@ -113,7 +113,7 @@ namespace HMS_DL
             try
             {
                 SqlParameter[] param = new SqlParameter[07];
-                param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
+                param[0] = new SqlParameter("@Action", "createExameSchedule");
                 param[1] = new SqlParameter("@batch_Id", objExamSchedule.batch_Id);
                 param[2] = new SqlParameter("@programeId", objExamSchedule.programeId);
                 param[3] = new SqlParameter("@semester_year", objExamSchedule.semester_year);
@@ -139,6 +139,32 @@ namespace HMS_DL
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        public ResponseData examScheduleList()
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[01];
+                param[0] = new SqlParameter("@Action", "ExameScheduleList");
+                ds = DBOperation.FillDataSet("[Sp_Exam_Schedule]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objres.Data = ds.Tables[0];
+                    objres.Message = "Data get Successfully.....";
+                    objres.statusCode = 1;
+                }
+                else
+                {
+                    objres.ResponseCode = "001";
+                    objres.Message = "No Data Available...";
+                    objres.statusCode = -1;
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
             }
             return objres;
         }
