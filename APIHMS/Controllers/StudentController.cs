@@ -44,5 +44,37 @@ namespace APIHMS.Controllers
             return objTableResponce;
 
         }
+        [Route("examScheduleforStudents")]
+        [HttpGet]
+        [Authorize]
+        public ResponseData examScheduleforStudents(int id=0)
+        {
+            try
+            {
+                objres = objStuBl.examScheduleforStudents(id);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
+        [Route("getPaperforExam")]
+        [HttpGet]
+        [Authorize]
+        public ResponseData getPaperforExam(int batch_Id = 0,int semester_year = 0)
+        {
+            try
+            {
+                objres = objStuBl.getPaperforExam(batch_Id, semester_year);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
     }
 }

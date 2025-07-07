@@ -100,5 +100,63 @@ namespace HMS_DL
                 throw ex;
             }
         }
+        public ResponseData examScheduleforStudents(int id=0)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[02];
+                param[0] = new SqlParameter("@Action", "ExameScheduleListforStudent");
+                param[1] = new SqlParameter("@batch_Id", id);
+                ds = DBOperation.FillDataSet("[Sp_Exam_Schedule]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objResponseData.Data = ds.Tables[0];
+                    objResponseData.Message = "Data get Successfully.....";
+                    objResponseData.statusCode = 1;
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return objResponseData;
+        }
+
+        public ResponseData getPaperforExam(int batch_Id = 0, int semester_year = 0)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[03];
+                param[0] = new SqlParameter("@Action", "GetPaperForExam");
+                param[1] = new SqlParameter("@batch_Id", batch_Id);
+                param[2] = new SqlParameter("@semester_year", semester_year);
+                ds = DBOperation.FillDataSet("[Sp_Exam_Schedule]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objResponseData.Data = ds.Tables[0];
+                    objResponseData.Message = "Data get Successfully.....";
+                    objResponseData.statusCode = 1;
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return objResponseData;
+        }
     }
 }

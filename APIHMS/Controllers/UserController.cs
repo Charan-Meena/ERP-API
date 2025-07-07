@@ -21,6 +21,29 @@ namespace APIHMS.Controllers
         }
         userBL objUserBl = new userBL();
 
+        //[HttpPost]
+        //[Route("userLogin")]
+        //public ResponseData userLogin(UserModel ObjUm)
+        //{
+        //    ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password);
+        //    try
+        //    {
+        //        var objResponseData = objUserBl.userLogin(ObjUm);
+        //        if (objResponseData.statusCode == 1)
+        //        {
+        //            var token = _jwtTokenService.GenerateToken(ObjUm.loginID);
+        //            objResponseData.JWT = token;
+        //            //return Ok(new { token });
+        //            return objResponseData;
+        //        }
+        //       // return Unauthorized();
+        //        return objResponseData;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         [HttpPost]
         [Route("userLogin")]
         public ResponseData userLogin(UserModel ObjUm)
@@ -36,7 +59,7 @@ namespace APIHMS.Controllers
                     //return Ok(new { token });
                     return objResponseData;
                 }
-               // return Unauthorized();
+                // return Unauthorized();
                 return objResponseData;
             }
             catch (Exception ex)
@@ -44,6 +67,11 @@ namespace APIHMS.Controllers
                 throw ex;
             }
         }
+
+
+
+
+
         [Authorize]
         [HttpPost]
         [Route("UserRegistration")]

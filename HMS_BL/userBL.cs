@@ -10,6 +10,10 @@ namespace HMS_BL
     public class userBL
     {
         userDL objUserDL = new userDL();
+        //public ResponseData userLogin(UserModel ObjUm)
+        //{
+        //    return objUserDL.userLogin(ObjUm);
+        //}
         public ResponseData userLogin(UserModel ObjUm)
         {
             return objUserDL.userLogin(ObjUm);

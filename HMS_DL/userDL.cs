@@ -12,16 +12,41 @@ namespace HMS_DL
     public class userDL
     {
         ResponseData objResponseData = new ResponseData();
+        //public ResponseData userLogin(UserModel ObjUm)
+        //{
+        //    SqlParameter[] param = new SqlParameter[3];
+
+        //    param[0] = new SqlParameter("@loginID", ObjUm.loginID);
+        //    param[1] = new SqlParameter("@Password", ObjUm.Password);
+        //    param[2] = new SqlParameter("@Action", "UserLogin");
+
+        //    DataSet ds = DBOperation.FillDataSet("Sp_UserAction", param);
+        //    if (ds != null && ds.Tables[0].Rows.Count>0)
+        //    {
+        //        objResponseData.ResponseCode = "000";
+        //        objResponseData.Data = ds.Tables[0];
+        //        objResponseData.Message = "User Login Successfully";
+        //        objResponseData.statusCode = 1;
+        //        //objResponseData.JWT = _jwtTokenService.GenerateToken(ObjUm.loginID);
+        //    }
+        //    else
+        //    {
+        //        objResponseData.ResponseCode = "001";
+        //        objResponseData.Message = "No Data Available...";
+        //        objResponseData.statusCode = -1;
+        //    }
+        //    return objResponseData;
+        //}
         public ResponseData userLogin(UserModel ObjUm)
         {
             SqlParameter[] param = new SqlParameter[3];
 
             param[0] = new SqlParameter("@loginID", ObjUm.loginID);
             param[1] = new SqlParameter("@Password", ObjUm.Password);
-            param[2] = new SqlParameter("@Action", "UserLogin");
+            param[2] = new SqlParameter("@Action", "UserLogin11");
 
             DataSet ds = DBOperation.FillDataSet("Sp_UserAction", param);
-            if (ds != null && ds.Tables[0].Rows.Count>0)
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
                 objResponseData.ResponseCode = "000";
                 objResponseData.Data = ds.Tables[0];

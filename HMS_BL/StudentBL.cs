@@ -21,6 +21,16 @@ namespace HMS_BL
             objTableResponce= ObjStudentDl.studentList(objTblParam);
             return objTableResponce;
         }
+        public ResponseData examScheduleforStudents(int id)
+        {
+            objres = ObjStudentDl.examScheduleforStudents(id);
+            return objres;
+        }
+        public ResponseData getPaperforExam(int batch_Id = 0, int semester_year = 0)
+        {
+            objres = ObjStudentDl.getPaperforExam(batch_Id, semester_year);
+            return objres;
+        }
 
     }
 
