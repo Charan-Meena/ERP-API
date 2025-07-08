@@ -10,9 +10,10 @@ namespace HMS_BO
     }
     public class ExamStudentSlots_Marks
 	{
-    public string examStudentSlots_MarksID { get; set; }
-	public string subjectCourseID { get; set; }
-	public string examdate { get; set; }
+    public int examStudentSlots_MarksID { get; set; }
+    
+	public int subjectCourseID { get; set; }
+	public DateTime? examdate { get; set; }
 	public string semYear { get; set; }
 	public string theoryMax { get; set; }
 	public string theoryMin { get; set; }
@@ -26,6 +27,16 @@ namespace HMS_BO
 	public string maxTotal { get; set; }
 	public string minTotal { get; set; }
 	public string obtainMAx { get; set; }
+	}
+	public class ExamSlotsModal
+    {
+		public int examScheduleID { get; set; }
+		public int studentID { get; set; }
+		public int userID { get; set; }
+		public string subject { get; set; }
+		public string spAction { get; set; }
+		public List<ExamStudentSlots_Marks> subjectList { get; set; }
 
 	}
+
 }

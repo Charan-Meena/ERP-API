@@ -47,11 +47,11 @@ namespace APIHMS.Controllers
         [Route("examScheduleforStudents")]
         [HttpGet]
         [Authorize]
-        public ResponseData examScheduleforStudents(int id=0)
+        public ResponseData examScheduleforStudents(int id=0,int studentID=0)
         {
             try
             {
-                objres = objStuBl.examScheduleforStudents(id);
+                objres = objStuBl.examScheduleforStudents(id, studentID);
                 return objres;
             }
             catch (Exception ex)
@@ -63,11 +63,29 @@ namespace APIHMS.Controllers
         [Route("getPaperforExam")]
         [HttpGet]
         [Authorize]
-        public ResponseData getPaperforExam(int batch_Id = 0,int semester_year = 0)
+        public ResponseData getPaperforExam(int batch_Id = 0,int semester_year = 0,int studentID=0)
         {
             try
             {
-                objres = objStuBl.getPaperforExam(batch_Id, semester_year);
+                objres = objStuBl.getPaperforExam(batch_Id, semester_year, studentID);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
+        [Route("studentExamSlotCreate")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData studentExamSlotCreate([FromForm] ExamSlotsModal objExamSlots)
+        {
+            objExamSlots.subjectList = JsonConvert.DeserializeObject<List<ExamStudentSlots_Marks>>(objExamSlots.subject);
+
+            try
+            {
+                objres = objStuBl.studentExamSlotCreate(objExamSlots);
                 return objres;
             }
             catch (Exception ex)

@@ -100,14 +100,15 @@ namespace HMS_DL
                 throw ex;
             }
         }
-        public ResponseData examScheduleforStudents(int id=0)
+        public ResponseData examScheduleforStudents(int id = 0, int studentID = 0)
         {
             DataSet ds = new DataSet();
             try
             {
-                SqlParameter[] param = new SqlParameter[02];
+                SqlParameter[] param = new SqlParameter[03];
                 param[0] = new SqlParameter("@Action", "ExameScheduleListforStudent");
                 param[1] = new SqlParameter("@batch_Id", id);
+                param[2] = new SqlParameter("@studentID", studentID);
                 ds = DBOperation.FillDataSet("[Sp_Exam_Schedule]", param);
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
@@ -129,21 +130,71 @@ namespace HMS_DL
             return objResponseData;
         }
 
-        public ResponseData getPaperforExam(int batch_Id = 0, int semester_year = 0)
+        public ResponseData getPaperforExam(int batch_Id = 0, int semester_year = 0, int studentID=0)
         {
             DataSet ds = new DataSet();
             try
             {
-                SqlParameter[] param = new SqlParameter[03];
+                SqlParameter[] param = new SqlParameter[04];
                 param[0] = new SqlParameter("@Action", "GetPaperForExam");
                 param[1] = new SqlParameter("@batch_Id", batch_Id);
                 param[2] = new SqlParameter("@semester_year", semester_year);
+                param[3] = new SqlParameter("@studentID", studentID);
                 ds = DBOperation.FillDataSet("[Sp_Exam_Schedule]", param);
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
                     objResponseData.Data = ds.Tables[0];
                     objResponseData.Message = "Data get Successfully.....";
                     objResponseData.statusCode = 1;
+                }
+                else
+                {
+                    objResponseData.ResponseCode = "001";
+                    objResponseData.Message = "No Data Available...";
+                    objResponseData.statusCode = -1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return objResponseData;
+        }
+
+        public ResponseData studentExamSlotCreate(ExamSlotsModal objExamSlots)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                foreach (ExamStudentSlots_Marks examSlot in objExamSlots.subjectList)
+                {
+                    SqlParameter[] param = new SqlParameter[18];
+
+                    param[0] = new SqlParameter("@Action", objExamSlots.spAction);
+                    param[1] = new SqlParameter("@examScheduleID", objExamSlots.examScheduleID);
+                    param[2] = new SqlParameter("@studentID", objExamSlots.studentID);
+                    param[3] = new SqlParameter("@userID", objExamSlots.userID);
+                    param[4] = new SqlParameter("@SubjectCourseID", examSlot.subjectCourseID);
+                    param[5] = new SqlParameter("@examdate", examSlot.examdate);
+                    param[6] = new SqlParameter("@SemYear", examSlot.semYear);
+                    param[7] = new SqlParameter("@TheoryMax", examSlot.theoryMax);
+                    param[8] = new SqlParameter("@TheoryMin", examSlot.theoryMin);
+                    param[9] = new SqlParameter("@obtainTheory", examSlot.obtainTheory);
+                    param[10] = new SqlParameter("@PractMax", examSlot.practMax);
+                    param[11] = new SqlParameter("@PractMin", examSlot.practMin);
+                    param[12] = new SqlParameter("@obtainPractical", examSlot.obtainPractical);
+                    param[13] = new SqlParameter("@SesMax", examSlot.sesMax);
+                    param[14] = new SqlParameter("@SesMin", examSlot.sesMin);
+                    param[15] = new SqlParameter("@MaxTotal", examSlot.maxTotal);
+                    param[16] = new SqlParameter("@MinTotal", examSlot.minTotal);
+                    param[17] = new SqlParameter("@obtainMAx", examSlot.obtainMAx);
+                    ds = DBOperation.FillDataSet("[Sp_Exam_Schedule]", param);
+                }
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objResponseData.Data = ds.Tables[0];
+                    objResponseData.Message = ds.Tables[0].Rows[0][1].ToString();
+                    objResponseData.statusCode = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
                 }
                 else
                 {
