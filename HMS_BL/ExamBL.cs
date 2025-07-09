@@ -15,9 +15,9 @@ namespace HMS_BL
             objres = ObjExamDl.examPaperQuestionAdd(objexamPaperQuestion);
             return objres;
         }
-        public ResponseData onLineExaminationGetQuestionList()
+        public ResponseData onLineExaminationGetQuestionList(int examStudentSlots_MarksID = 0, int studentID = 0, int PaperID = 0)
         {
-            objres = ObjExamDl.onLineExaminationGetQuestionList();
+            objres = ObjExamDl.onLineExaminationGetQuestionList(examStudentSlots_MarksID,studentID, PaperID);
             return objres;
         }
         public ResponseData studentExamSubmit(studentExamSubmitlist objExamAns)
@@ -33,6 +33,11 @@ namespace HMS_BL
         public ResponseData examScheduleList()
         {
             objres = ObjExamDl.examScheduleList();
+            return objres;
+        }
+        public ResponseData GetPaperListforStudent(int studentID = 0, int semester_year = 0)
+        {
+            objres = ObjExamDl.GetPaperListforStudent(studentID, semester_year);
             return objres;
         }
     }

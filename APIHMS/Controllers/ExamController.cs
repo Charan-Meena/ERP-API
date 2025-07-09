@@ -36,11 +36,11 @@ namespace APIHMS.Controllers
         [Route("getQuestionforExam")]
         [HttpGet]
         [Authorize]
-        public ResponseData onLineExaminationGetQuestionList()
+        public ResponseData onLineExaminationGetQuestionList(int examStudentSlots_MarksID = 0, int studentID = 0, int PaperID = 0)
         {
             try
             {
-                objres = ObExamBl.onLineExaminationGetQuestionList();
+                objres = ObExamBl.onLineExaminationGetQuestionList(examStudentSlots_MarksID, studentID, PaperID);
                 return objres;
             }
             catch (Exception ex)
@@ -98,5 +98,24 @@ namespace APIHMS.Controllers
             }
             return objres;
         }
+
+        [Route("GetPaperListforStudent")]
+        [HttpGet]
+        [Authorize]
+        public ResponseData GetPaperListforStudent(int studentID=0, int semester_year=0)
+        {
+            try
+            {
+                objres = ObExamBl.GetPaperListforStudent(studentID, semester_year);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
+
+
     }
 }

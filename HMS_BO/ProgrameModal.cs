@@ -106,6 +106,9 @@ namespace HMS_BO
     }
     public class studentExamSubmitlist
     {
+        public int examStudentSlots_MarksID { get; set; }
+        public int studentID { get; set; }
+        public int PaperID { get; set; }      
         public List<studentExamSubmit> answerLsit { get; set; }
         public string questionList { get; set; }
     }

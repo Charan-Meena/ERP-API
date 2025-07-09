@@ -45,15 +45,16 @@ namespace HMS_DL
                 throw ex;
             }
         }
-        public ResponseData onLineExaminationGetQuestionList()
+        public ResponseData onLineExaminationGetQuestionList(int examStudentSlots_MarksID = 0, int studentID = 0,int PaperID=0)
         {
             try
             {
-                SqlParameter[] param = new SqlParameter[2];
-                param[0] = new SqlParameter("@Action", "GetQuestion");
-                param[1] = new SqlParameter("@paperID", 1);
-
-                DataSet ds = DBOperation.FillDataSet("[Sp_ExamPaperQuestionBank]", param);
+                SqlParameter[] param = new SqlParameter[4];
+                param[0] = new SqlParameter("@Action", "GetQuestionForExam");
+                param[1] = new SqlParameter("@paperID", PaperID);
+                param[2] = new SqlParameter("@studentID", studentID);
+                param[3] = new SqlParameter("@examStudentSlots_MarksID", examStudentSlots_MarksID);
+                DataSet ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
                     objres.Data = ds.Tables[0];
@@ -79,19 +80,20 @@ namespace HMS_DL
             {
                 foreach (studentExamSubmit item in objExamAns.answerLsit)
                 {
-                    SqlParameter[] param = new SqlParameter[07];
+                    SqlParameter[] param = new SqlParameter[08];
                     param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
-                    param[1] = new SqlParameter("@studentID", item.studentID);
+                    param[1] = new SqlParameter("@studentID", objExamAns.studentID);
                     param[2] = new SqlParameter("@paperID", item.paperID);
                     param[3] = new SqlParameter("@questionId", item.questionId);
                     param[4] = new SqlParameter("@answer", item.answer);
                     param[5] = new SqlParameter("@givenAnswer", item.givenAnswer);
                     param[6] = new SqlParameter("@examSession", item.examSession);                  
-                    ds = DBOperation.FillDataSet("[Sp_ExamPaperQuestionBank]", param);
+                    param[7] = new SqlParameter("@examStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);                                 
+                    ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
                 }
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
-                    objres.Data = "";
+                    objres.Data = ds.Tables[0];
                     objres.Message = "Answer Submited Successfully.....";
                     objres.statusCode = 1;
                 }
@@ -163,6 +165,35 @@ namespace HMS_DL
                 }
             }
             catch(Exception e)
+            {
+                throw e;
+            }
+            return objres;
+        }
+        public ResponseData GetPaperListforStudent(int studentID = 0, int semester_year = 0)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[03];
+                param[0] = new SqlParameter("@Action", "GetPaperListforStudent");
+                param[1] = new SqlParameter("@studentID", studentID);
+                param[2] = new SqlParameter("@semester_year", semester_year);
+                ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objres.Data = ds.Tables[0];
+                    objres.Message = "Data get Successfully.....";
+                    objres.statusCode = 1;
+                }
+                else
+                {
+                    objres.ResponseCode = "001";
+                    objres.Message = "No Data Available...";
+                    objres.statusCode = -1;
+                }
+            }
+            catch (Exception e)
             {
                 throw e;
             }
