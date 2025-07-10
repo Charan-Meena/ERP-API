@@ -49,12 +49,45 @@ namespace APIHMS.Controllers
             }
             return objres;
         }
+        [Route("studentExamSubmitSingle")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData studentExamSubmitSingle([FromForm] studentExamSubmitlist objExamAns )
+        {
+            objExamAns.answerLsitSingle = JsonConvert.DeserializeObject<studentExamSubmit>(objExamAns.questionList);
+            try
+            {
+                objres = ObExamBl.studentExamSubmitSingle(objExamAns);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
+        [Route("studentExamSubmitFinal")]
+        [HttpPost]
+        [Authorize]
+        public ResponseData studentExamSubmitFinal([FromForm] studentExamSubmitlist objExamAns)
+        {
+            try
+            {
+                objres = ObExamBl.studentExamSubmitFinal(objExamAns);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
         [Route("studentExamSubmit")]
         [HttpPost]
         [Authorize]
-        public ResponseData studentExamSubmit([FromForm] studentExamSubmitlist objExamAns )
+        public ResponseData studentExamSubmit([FromForm] studentExamSubmitlist objExamAns)
         {
-            objExamAns.answerLsit=JsonConvert.DeserializeObject<List<studentExamSubmit>>(objExamAns.questionList);
+            objExamAns.answerLsit = JsonConvert.DeserializeObject<List<studentExamSubmit>>(objExamAns.questionList);
             try
             {
                 objres = ObExamBl.studentExamSubmit(objExamAns);

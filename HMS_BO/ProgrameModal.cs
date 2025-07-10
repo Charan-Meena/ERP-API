@@ -109,7 +109,9 @@ namespace HMS_BO
         public int examStudentSlots_MarksID { get; set; }
         public int studentID { get; set; }
         public int PaperID { get; set; }      
+        public int timeleft { get; set; }      
         public List<studentExamSubmit> answerLsit { get; set; }
+        public studentExamSubmit answerLsitSingle { get; set; }
         public string questionList { get; set; }
     }
     public class ExamScheduleModal

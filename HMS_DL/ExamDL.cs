@@ -80,7 +80,7 @@ namespace HMS_DL
             {
                 foreach (studentExamSubmit item in objExamAns.answerLsit)
                 {
-                    SqlParameter[] param = new SqlParameter[08];
+                    SqlParameter[] param = new SqlParameter[09];
                     param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
                     param[1] = new SqlParameter("@studentID", objExamAns.studentID);
                     param[2] = new SqlParameter("@paperID", item.paperID);
@@ -89,6 +89,7 @@ namespace HMS_DL
                     param[5] = new SqlParameter("@givenAnswer", item.givenAnswer);
                     param[6] = new SqlParameter("@examSession", item.examSession);                  
                     param[7] = new SqlParameter("@examStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);                                 
+                    param[8] = new SqlParameter("@timeleft", objExamAns.timeleft);                                 
                     ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
                 }
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
@@ -109,6 +110,75 @@ namespace HMS_DL
                 throw ex;
             }
         }
+        public ResponseData studentExamSubmitSingle(studentExamSubmitlist objExamAns)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                SqlParameter[] param = new SqlParameter[09];
+                param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
+                param[1] = new SqlParameter("@studentID", objExamAns.studentID);
+                param[2] = new SqlParameter("@paperID", objExamAns.answerLsitSingle.paperID);
+                param[3] = new SqlParameter("@questionId", objExamAns.answerLsitSingle.questionId);
+                param[4] = new SqlParameter("@answer", objExamAns.answerLsitSingle.answer);
+                param[5] = new SqlParameter("@givenAnswer", objExamAns.answerLsitSingle.givenAnswer);
+                param[6] = new SqlParameter("@examSession", objExamAns.answerLsitSingle.examSession);
+                param[7] = new SqlParameter("@examStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);
+                param[8] = new SqlParameter("@timeleft", objExamAns.timeleft);
+                ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objres.Data = ds.Tables[0];
+                    objres.Message = "Answer Submited Successfully.....";
+                    objres.statusCode = 1;
+                }
+                else
+                {
+                    objres.ResponseCode = "001";
+                    objres.Message = "No Data Available...";
+                    objres.statusCode = -1;
+                }
+                return objres;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+        public ResponseData studentExamSubmitFinal(studentExamSubmitlist objExamAns)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                SqlParameter[] param = new SqlParameter[05];
+                param[0] = new SqlParameter("@Action", "ExamFinalAnswerSubmit");
+                param[1] = new SqlParameter("@studentID", objExamAns.studentID);
+                param[2] = new SqlParameter("@paperID", objExamAns.PaperID);
+                param[3] = new SqlParameter("@ExamStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);
+                param[4] = new SqlParameter("@timeleft", objExamAns.timeleft);
+                ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objres.Data = ds.Tables[0];
+                    objres.Message = "Exam Final Annswer Submited Successfully.....";
+                    objres.statusCode = 1;
+                }
+                else
+                {
+                    objres.ResponseCode = "001";
+                    objres.Message = "No Data Available...";
+                    objres.statusCode = -1;
+                }
+                return objres;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
         public ResponseData examScheduleCreate(ExamScheduleModal objExamSchedule)
         {
             DataSet ds = new DataSet();

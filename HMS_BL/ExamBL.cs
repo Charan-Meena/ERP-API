@@ -25,6 +25,16 @@ namespace HMS_BL
             objres = ObjExamDl.studentExamSubmit(objExamAns);
             return objres;
         }
+        public ResponseData studentExamSubmitSingle(studentExamSubmitlist objExamAns)
+        {
+            objres = ObjExamDl.studentExamSubmitSingle(objExamAns);
+            return objres;
+        }
+        public ResponseData studentExamSubmitFinal(studentExamSubmitlist objExamAns)
+        {
+            objres = ObjExamDl.studentExamSubmitFinal(objExamAns);
+            return objres;
+        }
         public ResponseData examScheduleCreate(ExamScheduleModal objExamSchedule)
         {
             objres = ObjExamDl.examScheduleCreate(objExamSchedule);
