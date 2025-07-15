@@ -54,7 +54,11 @@ namespace APIHMS.Controllers
         [Authorize]
         public ResponseData studentExamSubmitSingle([FromForm] studentExamSubmitlist objExamAns )
         {
-            objExamAns.answerLsitSingle = JsonConvert.DeserializeObject<studentExamSubmit>(objExamAns.questionList);
+            if (objExamAns.questionList!=null)
+            {
+                objExamAns.answerLsitSingle = JsonConvert.DeserializeObject<studentExamSubmit>(objExamAns.questionList);
+            }
+            
             try
             {
                 objres = ObExamBl.studentExamSubmitSingle(objExamAns);
@@ -148,7 +152,39 @@ namespace APIHMS.Controllers
             }
             return objres;
         }
+        [Route("GetPaperListforResult")]
+        [HttpGet]
+        [Authorize]
 
+        public ResponseData GetPaperListforResult(int programeId = 0, int semester_year = 0)
+        {
+            try
+            {
+                objres = ObExamBl.GetPaperListforResult(programeId, semester_year);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
+        [Route("GetMarkListByPaper")]
+        [HttpGet]
+        [Authorize]
+        public ResponseData GetMarkListByPaper(int SubjectCourseID = 0)
+        {
+            try
+            {
+                objres = ObExamBl.GetMarkListByPaper(SubjectCourseID);
+                return objres;
+            }
+            catch (Exception ex)
+            {
+                // throw ex.Message;
+            }
+            return objres;
+        }
 
     }
 }

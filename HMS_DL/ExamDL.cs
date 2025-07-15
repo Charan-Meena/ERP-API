@@ -115,17 +115,31 @@ namespace HMS_DL
             try
             {
                 DataSet ds = new DataSet();
-                SqlParameter[] param = new SqlParameter[09];
-                param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
-                param[1] = new SqlParameter("@studentID", objExamAns.studentID);
-                param[2] = new SqlParameter("@paperID", objExamAns.answerLsitSingle.paperID);
-                param[3] = new SqlParameter("@questionId", objExamAns.answerLsitSingle.questionId);
-                param[4] = new SqlParameter("@answer", objExamAns.answerLsitSingle.answer);
-                param[5] = new SqlParameter("@givenAnswer", objExamAns.answerLsitSingle.givenAnswer);
-                param[6] = new SqlParameter("@examSession", objExamAns.answerLsitSingle.examSession);
-                param[7] = new SqlParameter("@examStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);
-                param[8] = new SqlParameter("@timeleft", objExamAns.timeleft);
-                ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
+                if(objExamAns.answerLsitSingle != null)
+                {
+                    SqlParameter[] param = new SqlParameter[09];
+                    param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
+                    param[1] = new SqlParameter("@studentID", objExamAns.studentID);
+                    param[2] = new SqlParameter("@paperID", objExamAns.answerLsitSingle.paperID);
+                    param[3] = new SqlParameter("@questionId", objExamAns.answerLsitSingle.questionId);
+                    param[4] = new SqlParameter("@answer", objExamAns.answerLsitSingle.answer);
+                    param[5] = new SqlParameter("@givenAnswer", objExamAns.answerLsitSingle.givenAnswer);
+                    param[6] = new SqlParameter("@examSession", objExamAns.answerLsitSingle.examSession);
+                    param[7] = new SqlParameter("@examStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);
+                    param[8] = new SqlParameter("@timeleft", objExamAns.timeleft);
+                    ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
+                }
+                else
+                {
+                    SqlParameter[] param = new SqlParameter[04];
+                    param[0] = new SqlParameter("@Action", "ExamAnswerSubmit");
+                    param[1] = new SqlParameter("@studentID", objExamAns.studentID);
+                    param[2] = new SqlParameter("@examStudentSlots_MarksID", objExamAns.examStudentSlots_MarksID);
+                    param[3] = new SqlParameter("@timeleft", objExamAns.timeleft);
+                    ds = DBOperation.FillDataSet("[Sp_OnlineExam]", param);
+                }
+               
+               
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
                     objres.Data = ds.Tables[0];
@@ -161,8 +175,8 @@ namespace HMS_DL
                 if (ds != null || ds.Tables[0].Rows.Count > 0)
                 {
                     objres.Data = ds.Tables[0];
-                    objres.Message = "Exam Final Annswer Submited Successfully.....";
-                    objres.statusCode = 1;
+                    objres.Message = ds.Tables[0].Rows[0][1].ToString();
+                    objres.statusCode = Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString());
                 }
                 else
                 {
@@ -269,5 +283,65 @@ namespace HMS_DL
             }
             return objres;
         }
+
+        public ResponseData GetPaperListforResult(int programeId = 0, int semester_year = 0)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[03];
+                param[0] = new SqlParameter("@Action", "GetPaperListforResult");
+                param[1] = new SqlParameter("@programeId", programeId);
+                param[2] = new SqlParameter("@semester_year", semester_year);
+                ds = DBOperation.FillDataSet("[Sp_ExamResult]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objres.Data = ds.Tables[0];
+                    objres.Message = "Data get Successfully.....";
+                    objres.statusCode = 1;
+                }
+                else
+                {
+                    objres.ResponseCode = "001";
+                    objres.Message = "No Data Available...";
+                    objres.statusCode = -1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return objres;
+        }
+        public ResponseData GetMarkListByPaper(int SubjectCourseID = 0)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                SqlParameter[] param = new SqlParameter[02];
+                param[0] = new SqlParameter("@Action", "GetMarkListByPaper");
+                param[1] = new SqlParameter("@SubjectCourseID", SubjectCourseID);
+                ds = DBOperation.FillDataSet("[Sp_ExamResult]", param);
+                if (ds != null || ds.Tables[0].Rows.Count > 0)
+                {
+                    objres.Data = ds.Tables[0];
+                    objres.Message = "Data get Successfully.....";
+                    objres.statusCode = 1;
+                }
+                else
+                {
+                    objres.ResponseCode = "001";
+                    objres.Message = "No Data Available...";
+                    objres.statusCode = -1;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return objres;
+        }
+
+
     }
 }

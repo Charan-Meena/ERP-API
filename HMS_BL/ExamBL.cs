@@ -50,5 +50,15 @@ namespace HMS_BL
             objres = ObjExamDl.GetPaperListforStudent(studentID, semester_year);
             return objres;
         }
+        public ResponseData GetPaperListforResult(int programeId = 0, int semester_year = 0)
+        {
+            objres = ObjExamDl.GetPaperListforResult(programeId, semester_year);
+            return objres;
+        }
+        public ResponseData GetMarkListByPaper(int SubjectCourseID = 0)
+        {
+            objres = ObjExamDl.GetMarkListByPaper(SubjectCourseID);
+            return objres;
+        }
     }
 }
