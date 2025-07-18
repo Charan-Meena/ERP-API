@@ -19,6 +19,25 @@ namespace APIHMS.Controllers
         {
             _jwtTokenService = jwtTokenService;
         }
+        //private readonly IHttpContextAccessor _httpContextAccessor;
+        //public UserController(IHttpContextAccessor httpContextAccessor)
+        //{
+        //    _httpContextAccessor = httpContextAccessor;
+        //}
+        public string GetHeaderValue()
+        {
+            // Check if the header exists
+            if (Request.Headers.TryGetValue("Key", out var headerValue))
+            {
+                //return Ok(new { HeaderValue = headerValue.ToString() });
+                return headerValue.ToString();
+            }
+            else
+            {
+                return "Header not found.";
+            }
+        }
+
         userBL objUserBl = new userBL();
 
         //[HttpPost]
@@ -48,7 +67,12 @@ namespace APIHMS.Controllers
         [Route("userLogin")]
         public ResponseData userLogin(UserModel ObjUm)
         {
-            ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password);
+            var keyMerchat = GetHeaderValue();
+            string headerKey = "Key";
+           //var kevalue= commonFunction.GetHeaderValue(_httpContextAccessor, headerKey);
+            //Console.Write(testHeaders);
+
+            ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password, keyMerchat);
             try
             {
                 var objResponseData = objUserBl.userLogin(ObjUm);
@@ -77,7 +101,8 @@ namespace APIHMS.Controllers
         [Route("UserRegistration")]
         public ResponseData UserRegistration([FromForm]UserModel ObjUm)
         {
-            ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password);
+            var keyMerchat = GetHeaderValue();
+            ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password, keyMerchat);
             try
             {
                 var objResponseData = objUserBl.UserRegistration(ObjUm);

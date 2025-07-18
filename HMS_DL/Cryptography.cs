@@ -1,16 +1,19 @@
 ﻿using System;
+using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HMS_DL
 {
     public class Cryptography
     {
-        public static string Encrypt(string clearText)
+        public static string Encrypt(string clearText,string EnryptKey)
         {
-            string EncryptionKey = "KMDRE23870FDR3S";
+            string EncryptionKey = EnryptKey;                           // "KMDRE23870FDR3S";
             byte[] clearBytes = Encoding.Unicode.GetBytes(clearText);
             using (Aes encryptor = Aes.Create())
             {
@@ -29,9 +32,9 @@ namespace HMS_DL
             }
             return clearText;
         }
-        public static string Decrypt(string cipherText)
+        public static string Decrypt(string cipherText,string DecryptKey)
         {
-            string EncryptionKey = "KMDRE23870FDR3S";
+            string EncryptionKey = DecryptKey;
             byte[] cipherBytes = Convert.FromBase64String(cipherText);
             using (Aes encryptor = Aes.Create())
             {

@@ -41,18 +41,10 @@ namespace APIHMS
                                             .AllowAnyMethod();
                     });
             });
+            
+            
+            //services.AddHttpContextAccessor();
 
-            // JWT Configuration
-            //var appSettingsSection = Configuration.GetSection("AppSettings");
-            //services.Configure<Appsetting>(appSettingsSection);
-
-            //var token = appSettingsSection.Get<Appsetting>();
-
-            //services.AddControllers()
-            //.AddNewtonsoftJson(options =>
-            //{
-            //    options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-            //});
 
             var jwtSection = Configuration.GetSection("Jwt");
             services.Configure<JwtSettings>(jwtSection);

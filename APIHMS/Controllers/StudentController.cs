@@ -23,7 +23,7 @@ namespace APIHMS.Controllers
         [Authorize]
         public ResponseData stdentsRegistration([FromForm] StudentModal ObjStudent)
         {
-            ObjStudent.passwordhash = HMS_DL.Cryptography.Encrypt(ObjStudent.passwordhash);
+            ObjStudent.passwordhash = HMS_DL.Cryptography.Encrypt(ObjStudent.passwordhash, "KMDRE23870FDR3S");
             objres = objStuBl.stdentsRegistration(ObjStudent);
             return objres;
         }
