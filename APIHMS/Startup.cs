@@ -43,9 +43,6 @@ namespace APIHMS
             });
             
             
-            //services.AddHttpContextAccessor();
-
-
             var jwtSection = Configuration.GetSection("Jwt");
             services.Configure<JwtSettings>(jwtSection);
 
@@ -78,6 +75,8 @@ namespace APIHMS
             });
             services.AddControllers();
             services.AddSingleton<JwtTokenService>();
+
+            services.AddHttpContextAccessor();// add new services for key
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

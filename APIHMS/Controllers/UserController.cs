@@ -12,33 +12,33 @@ namespace APIHMS.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        userBL objUserBl = new userBL();
         private readonly JwtTokenService _jwtTokenService;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         CommonServices objCommonservices = new CommonServices();
 
-        public UserController(JwtTokenService jwtTokenService)
+        public UserController(JwtTokenService jwtTokenService, IHttpContextAccessor httpContextAccessor)
         {
             _jwtTokenService = jwtTokenService;
+            _httpContextAccessor = httpContextAccessor;
         }
-        //private readonly IHttpContextAccessor _httpContextAccessor;
-        //public UserController(IHttpContextAccessor httpContextAccessor)
-        //{
-        //    _httpContextAccessor = httpContextAccessor;
-        //}
-        public string GetHeaderValue()
-        {
-            // Check if the header exists
-            if (Request.Headers.TryGetValue("Key", out var headerValue))
-            {
-                //return Ok(new { HeaderValue = headerValue.ToString() });
-                return headerValue.ToString();
-            }
-            else
-            {
-                return "Header not found.";
-            }
-        }
+        string headerKey = "Key";
+        
 
-        userBL objUserBl = new userBL();
+        //public string GetHeaderValue()
+        //{
+        //    // Check if the header exists
+        //    if (Request.Headers.TryGetValue("Key", out var headerValue))
+        //    {
+        //        //return Ok(new { HeaderValue = headerValue.ToString() });
+        //        return headerValue.ToString();
+        //    }
+        //    else
+        //    {
+        //        return "Header not found.";
+        //    }
+        //}
+
 
         //[HttpPost]
         //[Route("userLogin")]
@@ -67,12 +67,10 @@ namespace APIHMS.Controllers
         [Route("userLogin")]
         public ResponseData userLogin(UserModel ObjUm)
         {
-            var keyMerchat = GetHeaderValue();
-            string headerKey = "Key";
-           //var kevalue= commonFunction.GetHeaderValue(_httpContextAccessor, headerKey);
-            //Console.Write(testHeaders);
+            //var keyMerchat = GetHeaderValue();
+            var kevalue = commonFunction.GetHeaderValue(_httpContextAccessor, headerKey);
 
-            ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password, keyMerchat);
+            ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password, kevalue);
             try
             {
                 var objResponseData = objUserBl.userLogin(ObjUm);
@@ -94,14 +92,13 @@ namespace APIHMS.Controllers
 
 
 
-
-
         [Authorize]
         [HttpPost]
         [Route("UserRegistration")]
         public ResponseData UserRegistration([FromForm]UserModel ObjUm)
         {
-            var keyMerchat = GetHeaderValue();
+            //var keyMerchat = GetHeaderValue();
+            var keyMerchat = commonFunction.GetHeaderValue(_httpContextAccessor, headerKey);
             ObjUm.Password = HMS_DL.Cryptography.Encrypt(ObjUm.Password, keyMerchat);
             try
             {

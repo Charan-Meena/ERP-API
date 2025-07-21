@@ -25,7 +25,7 @@ namespace APIHMS.Services
             {
             new Claim(JwtRegisteredClaimNames.Sub, username),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+            };
 
             var token = new JwtSecurityToken(
                 issuer: _config["Jwt:Issuer"],
